@@ -3,8 +3,8 @@ import numpy as np
 import glob
 import os
 
-pattern_size = (2, 4)  
-square_size = 0.050
+pattern_size = (8, 6)  
+square_size = 0.030
 
 objp = np.zeros((pattern_size[0] * pattern_size[1], 3), np.float32)
 objp[:, :2] = np.mgrid[0:pattern_size[0], 0:pattern_size[1]].T.reshape(-1, 2) * square_size
