@@ -2,6 +2,27 @@ import cv2
 import torch
 from ultralytics import YOLO
 import numpy as np
+import logging
+from pathlib import Path
+from datetime import datetime
+
+log_dir = Path("logs")
+log_dir.mkdir(parents=True, exist_ok=True)  # Create logs directory if needed
+
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+log_file = log_dir / f"log_{timestamp}.txt"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(message)s",
+    handlers=[
+        logging.FileHandler(log_file),  
+        logging.StreamHandler()         
+    ]
+)
+
+#idea: keyboard should be at z = 0, and is pointing in the positive z direction. 
+#camera needs to be pointing in the -z direction so that it is looking at the keyboard
 
 fx = 1.06132388e+03
 cx = 6.27894027e+02
